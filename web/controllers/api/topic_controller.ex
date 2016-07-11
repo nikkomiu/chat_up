@@ -11,17 +11,17 @@ defmodule ChatUp.Api.TopicController do
         conn
         |> put_status(:created)
         |> put_resp_header("location", topic_path(conn, :show, topic))
-        |> render("show.json", topic: topic)
+        |> render(:show, topic: topic)
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(ChatUp.Api.ChangesetView, "error.json", changeset: changeset)
+        |> render(ChatUp.Api.ChangesetView, :error, changeset: changeset)
     end
   end
 
   def show(conn, %{"id" => id}) do
     topic = Repo.get!(Topic, id)
-    render(conn, "show.json", topic: topic)
+    render(conn, :show, topic: topic)
   end
 
   def update(conn, %{"id" => id, "topic" => topic_params}) do
@@ -30,11 +30,11 @@ defmodule ChatUp.Api.TopicController do
 
     case Repo.update(changeset) do
       {:ok, topic} ->
-        render(conn, "show.json", topic: topic)
+        render(conn, :show, topic: topic)
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(ChatUp.Api.ChangesetView, "error.json", changeset: changeset)
+        |> render(ChatUp.Api.ChangesetView, :error, changeset: changeset)
     end
   end
 

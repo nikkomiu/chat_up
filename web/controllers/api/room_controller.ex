@@ -5,7 +5,7 @@ defmodule ChatUp.Api.RoomController do
 
   def index(conn, _params) do
     rooms = Repo.all(Room)
-    render(conn, "index.json", rooms: rooms)
+    render(conn, :index, rooms: rooms)
   end
 
   def create(conn, %{"room" => room_params}) do
@@ -16,17 +16,17 @@ defmodule ChatUp.Api.RoomController do
         conn
         |> put_status(:created)
         |> put_resp_header("location", room_path(conn, :show, room))
-        |> render("show.json", room: room)
+        |> render(:show, room: room)
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(ChatUp.Api.ChangesetView, "error.json", changeset: changeset)
+        |> render(ChatUp.Api.ChangesetView, :error, changeset: changeset)
     end
   end
 
   def show(conn, %{"id" => id}) do
     room = Repo.get!(Room, id)
-    render(conn, "show.json", room: room)
+    render(conn, :show, room: room)
   end
 
   def update(conn, %{"id" => id, "room" => room_params}) do
@@ -35,11 +35,11 @@ defmodule ChatUp.Api.RoomController do
 
     case Repo.update(changeset) do
       {:ok, room} ->
-        render(conn, "show.json", room: room)
+        render(conn, :show, room: room)
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(ChatUp.Api.ChangesetView, "error.json", changeset: changeset)
+        |> render(ChatUp.Api.ChangesetView, :error, changeset: changeset)
     end
   end
 
