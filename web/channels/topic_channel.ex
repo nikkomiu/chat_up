@@ -10,7 +10,7 @@ defmodule ChatUp.TopicChannel do
     messages = Repo.all(
       from a in assoc(topic, :messages),
       where: a.id > ^last_seen_id,
-      order_by: [asc: a.at, asc: a.id],
+      order_by: [asc: a.inserted_at, asc: a.id],
       limit: 200
     )
 
@@ -31,7 +31,7 @@ defmodule ChatUp.TopicChannel do
   def handle_in("new_message", params, socket) do
     changeset =
       ChatUp.Message
-      |> build_assoc(:messages, video_id: socket.assigns.topic_id)
+      |> build_assoc(:messages, topic_id: socket.assigns.topic_id)
       |> ChatUp.Message.changeset(params)
 
     case Repo.insert(changeset) do
