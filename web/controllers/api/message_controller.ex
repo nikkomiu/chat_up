@@ -17,7 +17,6 @@ defmodule ChatUp.Api.MessageController do
       {:ok, message} ->
         conn
         |> put_status(:created)
-        |> put_resp_header("location", room_path(conn, :show, room))
         |> render(:show, message: message)
       {:error, changeset} ->
         conn
@@ -28,7 +27,7 @@ defmodule ChatUp.Api.MessageController do
 
   def update(conn, %{"id" => id, "message" => message_params}) do
     message = Repo.get!(Message, id)
-    changeset = Message.changeset(room, message_params)
+    changeset = Message.changeset(message, message_params)
 
     case Repo.update(changeset) do
       {:ok, message} ->
