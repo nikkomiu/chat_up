@@ -24,5 +24,6 @@ defmodule ChatUp.Router do
     pipe_through :api
 
     resources "/rooms", RoomController, except: [:new, :edit]
+    resources "/topics", TopicController, except: [:new, :edit]
   end
 end
