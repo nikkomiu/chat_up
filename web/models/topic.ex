@@ -16,7 +16,7 @@ defmodule ChatUp.Topic do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name, :audience])
-    |> validate_required([:name, :audience])
+    |> cast(params, [:name, :audience, :room_id])
+    |> validate_required([:name, :audience, :room_id])
   end
 end

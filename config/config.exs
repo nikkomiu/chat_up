@@ -9,6 +9,9 @@ use Mix.Config
 config :chat_up,
   ecto_repos: [ChatUp.Repo]
 
+config :phoenix, :template_engines,
+  haml: PhoenixHaml.Engine
+
 # Configures the endpoint
 config :chat_up, ChatUp.Endpoint,
   url: [host: "localhost"],

@@ -16,7 +16,7 @@ defmodule ChatUp.Message do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:body])
+    |> cast(params, [:body, :parent_id])
     |> validate_required([:body])
   end
 end
