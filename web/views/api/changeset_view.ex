@@ -1,4 +1,4 @@
-defmodule ChatUp.ChangesetView do
+defmodule ChatUp.Api.ChangesetView do
   use ChatUp.Web, :view
 
   @doc """

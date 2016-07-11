@@ -1,12 +1,12 @@
-defmodule ChatUp.RoomView do
+defmodule ChatUp.Api.RoomView do
   use ChatUp.Web, :view
 
   def render("index.json", %{rooms: rooms}) do
-    render_many(rooms, ChatUp.RoomView, "room.json")
+    render_many(rooms, ChatUp.Api.RoomView, "room.json")
   end
 
   def render("show.json", %{room: room}) do
-    render_one(room, ChatUp.RoomView, "room.json")
+    render_one(room, ChatUp.Api.RoomView, "room.json")
   end
 
   def render("room.json", %{room: room}) do

@@ -20,7 +20,7 @@ defmodule ChatUp.Router do
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", ChatUp do
+  scope "/api", ChatUp.Api do
     pipe_through :api
 
     resources "/rooms", RoomController, except: [:new, :edit]

@@ -1,4 +1,4 @@
-defmodule ChatUp.RoomController do
+defmodule ChatUp.Api.RoomController do
   use ChatUp.Web, :controller
 
   alias ChatUp.Room
@@ -20,7 +20,7 @@ defmodule ChatUp.RoomController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(ChatUp.ChangesetView, "error.json", changeset: changeset)
+        |> render(ChatUp.Api.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
@@ -39,7 +39,7 @@ defmodule ChatUp.RoomController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(ChatUp.ChangesetView, "error.json", changeset: changeset)
+        |> render(ChatUp.Api.ChangesetView, "error.json", changeset: changeset)
     end
   end
 

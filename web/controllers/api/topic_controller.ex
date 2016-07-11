@@ -1,4 +1,4 @@
-defmodule ChatUp.TopicController do
+defmodule ChatUp.Api.TopicController do
   use ChatUp.Web, :controller
 
   alias ChatUp.Topic
@@ -15,7 +15,7 @@ defmodule ChatUp.TopicController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(ChatUp.ChangesetView, "error.json", changeset: changeset)
+        |> render(ChatUp.Api.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
@@ -34,7 +34,7 @@ defmodule ChatUp.TopicController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(ChatUp.ChangesetView, "error.json", changeset: changeset)
+        |> render(ChatUp.Api.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
