@@ -5,6 +5,8 @@ defmodule ChatUp.Room do
     field :name, :string
     field :description, :string
 
+    has_many :topics, ChatUp.Topic
+
     timestamps()
   end
 

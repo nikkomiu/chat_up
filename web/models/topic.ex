@@ -4,6 +4,9 @@ defmodule ChatUp.Topic do
   schema "topics" do
     field :name, :string
     field :audience, :integer
+    belongs_to :room, ChatUp.Room
+
+    has_many :messages, ChatUp.Message
 
     timestamps()
   end
