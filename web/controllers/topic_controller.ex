@@ -3,11 +3,6 @@ defmodule ChatUp.TopicController do
 
   alias ChatUp.Topic
 
-  def index(conn, _params) do
-    topics = Repo.all(Topic)
-    render(conn, "index.json", topics: topics)
-  end
-
   def create(conn, %{"topic" => topic_params}) do
     changeset = Topic.changeset(%Topic{}, topic_params)
 
