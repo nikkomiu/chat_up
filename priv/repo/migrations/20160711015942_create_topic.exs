@@ -10,6 +10,7 @@ defmodule ChatUp.Repo.Migrations.CreateTopic do
       timestamps()
     end
 
+    create index(:topics, [:room_id])
     create index(:topics, [:name, :room_id], unique: true)
   end
 end

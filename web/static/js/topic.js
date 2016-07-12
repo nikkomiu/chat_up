@@ -1,12 +1,12 @@
 let Topic = {
-  init(socket) {
-    console.log("something")
+  init(socket, element) {
+    if (!element) { return }
 
-    this.onReady(2, socket)
-  },
+    let topicId = element.getAttribute("data-topic-id")
+    let chatInput = document.getElementById("chat-input")
+    let chatButton = document.getElementById("chat-submit")
 
-  onReady(topicId, socket) {
-    console.log("onReady")
+    if (!topicId) { return }
 
     let topicChannel = socket.channel(`topic:${topicId}`)
 

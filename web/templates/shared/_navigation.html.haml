@@ -1,2 +1,7 @@
 %nav.site-header
-  %h3 Chat Up
+  %h3.pull-left= link "Chat Up", to: page_path(@conn, :index)
+  %ul.nav.site-nav.pull-left
+    %li= link "Rooms", to: room_path(@conn, :index)
+    %li
+      %a{href: "#"} Some
+  .clearfix

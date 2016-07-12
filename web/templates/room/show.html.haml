@@ -1,0 +1,18 @@
+%h3.page-header
+  = @room.name
+  %small= @room.description
+
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title.pull-left
+      = @room.name
+      Topics
+    .pull-right
+      = link "New", to: topic_path(@conn, :new), class: "btn btn-primary btn-xs"
+    .clearfix
+  .list-group
+    = for topic <- @room.topics do
+      = link to: topic_path(@conn, :show, topic), class: "list-group-item" do
+        = topic.name
+      <% end %>
+    <% end %>

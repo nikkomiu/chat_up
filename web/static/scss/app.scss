@@ -20,8 +20,18 @@ $panel-default-border: transparent;
   border-width: 0;
 }
 
+.panel-title {
+  font-size: 18px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
 .panel-footer {
   border-top-width: 0;
+}
+
+.page-header {
+  margin-top: 0;
 }
 
 /*
@@ -49,22 +59,32 @@ $panel-default-border: transparent;
   padding: 0;
 
   h3 {
-    padding: 10px 15px;
+    padding: 10px;
     margin: 0;
-    font-size: 120%;
+    font-size: 18px;
 
     a {
       color: white;
+    }
 
-      &:hover {
-        color: darken($gray-lighter, 10%);
-        text-decoration: none;
-      }
+    a:hover, a:focus {
+      color: darken($gray-lighter, 10%);
+      text-decoration: none;
     }
   }
 
-  .site-nav {
-    margin: 0 8px;
+  ul.site-nav {
+    display: inline-flex;
+
+    a, a:active {
+      background-color: transparent;
+      color: $gray-lighter;
+    }
+
+    a:hover, a:focus {
+      background-color: $brand-primary;
+      color: white;
+    }
 
     .dropdown {
       padding: 10px 5px 5px 5px;

@@ -4,8 +4,6 @@
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
 
-import "bootstrap-sass"
-
 // Import local files
 //
 // Local files can be imported directly using relative
@@ -14,4 +12,4 @@ import "bootstrap-sass"
 import socket from "./socket"
 import Topic from "./topic"
 
-Topic.init(socket)
+Topic.init(socket, document.getElementById("chat-panel"))

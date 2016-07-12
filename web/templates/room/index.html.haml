@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title Rooms
+  .list-group
+    = for room <- @rooms do
+      = link to: room_path(@conn, :show, room.id), class: "list-group-item" do
+        %h4.list-group-item-heading= room.name
+        .list-group-item-description= room.description
+      <% end %>
+    <% end %>
