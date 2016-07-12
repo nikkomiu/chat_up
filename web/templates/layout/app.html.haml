@@ -1,0 +1,21 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}
+    %meta{content: "IE=edge", http-equiv: "X-UA-Compatible"}
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}
+
+    %meta{content: "", name: "description"}
+    %meta{content: "", name: "author"}
+
+    %title Hello ChatUp!
+    %link{href: "#{static_path(@conn, "/css/app.css")}", rel: "stylesheet"}
+  %body
+    = render ChatUp.SharedView, "_navigation.html", conn: @conn
+    = render ChatUp.SharedView, "_flash.html", conn: @conn
+
+    %main.container{role: "main"}
+      = render @view_module, @view_template, assigns
+
+    %script{src: "https://code.jquery.com/jquery-2.2.4.min.js", integrity: "sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=", crossorigin: "anonymous"}
+    %script{src: "#{static_path(@conn, "/js/app.js")}"}

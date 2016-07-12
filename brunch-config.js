@@ -12,17 +12,17 @@ exports.config = {
       // }
       //
       // To change the order of concatenation of files, explicitly mention here
-      // order: {
-      //   before: [
-      //     "web/static/vendor/js/jquery-2.1.1.js",
-      //     "web/static/vendor/js/bootstrap.min.js"
-      //   ]
-      // }
+      //order: {
+      //  before: [
+      //    "web/static/vendor/js/jquery-2.1.1.js",
+      //    "web/static/vendor/js/bootstrap.min.js"
+      //  ]
+      //}
     },
     stylesheets: {
       joinTo: "css/app.css",
       order: {
-        after: ["web/static/css/app.css"] // concat app.css last
+        after: ["web/static/scss/app.scss"] // concat app.css last
       }
     },
     templates: {
@@ -53,7 +53,13 @@ exports.config = {
   plugins: {
     babel: {
       // Do not use ES6 compiler in vendor code
-      ignore: [/web\/static\/vendor/]
+      ignore: [/web\/static\/vendor/, "node_modules"]
+    },
+    sass: {
+      mode: 'native',
+      options: {
+        includePaths: ["node_modules/bootstrap-sass/assets/stylesheets"]
+      }
     }
   },
 

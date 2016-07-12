@@ -1,0 +1,143 @@
+$brand-primary: #51445F;
+
+$body-bg: desaturate(lighten($brand-primary, 68%), 12%);
+
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$navbar-height: 38px;
+
+$border-radius-base: 0;
+
+$panel-border-radius: 8px;
+$panel-default-border: transparent;
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+@import "bootstrap_and_overrides";
+
+/*
+ * Custom Overrides
+ */
+.panel {
+  border-width: 0;
+}
+
+.panel-footer {
+  border-top-width: 0;
+}
+
+/*
+ * Custom Extensions
+ */
+.static-header {
+  @extend .page-header;
+
+  color: #fff;
+  border-bottom: 4px solid $brand-primary;
+
+  margin-top: 0;
+  padding: 10px 15px;
+
+  background-color: lighten($brand-primary, 15%);
+}
+
+.navigation-wrapper .site-header {
+  margin-bottom: 0;
+}
+
+.site-header {
+  @extend .static-header;
+
+  padding: 0;
+
+  h3 {
+    padding: 10px 15px;
+    margin: 0;
+    font-size: 120%;
+
+    a {
+      color: white;
+
+      &:hover {
+        color: darken($gray-lighter, 10%);
+        text-decoration: none;
+      }
+    }
+  }
+
+  .site-nav {
+    margin: 0 8px;
+
+    .dropdown {
+      padding: 10px 5px 5px 5px;
+
+      a.dropdown-toggle {
+        padding: 15px 4px 5px 4px;
+
+        fill: white;
+
+        &:hover {
+          fill: darken($gray-lighter, 10%);
+        }
+
+        .sicon {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
+
+.dropdown-left-menu {
+  @extend .dropdown-menu;
+
+  left: auto;
+  right: 0;
+}
+
+.navbar-pm {
+  @extend .navbar-default;
+
+  border-bottom: 4px solid $brand-primary;
+
+  background-color: lighten($brand-primary, 15%);
+
+  .navbar-toggle {
+    border: none;
+    padding: 4px;
+    margin: 8px 15px;
+
+    &:focus {
+      background-color: transparent;
+    }
+
+    &:hover, &:active {
+      background-color: transparent;
+      .icon-bar {
+        background-color: #bbb;
+      }
+    }
+
+    .icon-bar {
+      background-color: #fff;
+    }
+  }
+
+  .navbar-brand {
+    color: #fff;
+  }
+
+  .navbar-nav {
+    li > a {
+      color: #fff;
+    }
+  }
+}
+
+.panel-sm {
+  @extend .panel;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  max-width: 450px;
+}
