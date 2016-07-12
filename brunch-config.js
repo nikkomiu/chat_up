@@ -7,10 +7,10 @@ exports.config = {
       // To use a separate vendor.js bundle, specify two files path
       // http://brunch.io/docs/config#-files-
       // joinTo: {
-      //  "js/app.js": /^(web\/static\/js)/,
-      //  "js/vendor.js": /^(web\/static\/vendor)|(deps)/
+      //   "js/app.js": /^(web\/static\/js|node_modules\/phoenix.*)/,
+      //   "js/vendor.js": /^(web\/static\/vendor)|(deps)|(node_modules\/jquery)/
       // }
-      //
+
       // To change the order of concatenation of files, explicitly mention here
       //order: {
       //  before: [
@@ -53,7 +53,7 @@ exports.config = {
   plugins: {
     babel: {
       // Do not use ES6 compiler in vendor code
-      ignore: [/web\/static\/vendor/, "node_modules"]
+      ignore: [/web\/static\/vendor/]
     },
     sass: {
       mode: 'native',

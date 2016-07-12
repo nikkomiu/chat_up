@@ -14,7 +14,7 @@ defmodule ChatUp.TopicChannel do
       limit: 200
     )
 
-    resp = %{messages: Phoenix.View.render_many(messages, ChatUp.MessageView, "message.json")}
+    resp = %{messages: Phoenix.View.render_many(messages, ChatUp.Api.MessageView, "message.json")}
 
     {:ok, resp, assign(socket, :topic_id, topic_id)}
   end
@@ -44,7 +44,7 @@ defmodule ChatUp.TopicChannel do
   end
 
   defp broadcast_message(socket, message) do
-    rendered_ann = Phoenix.View.render(ChatUp.MessageView, "message.json", %{
+    rendered_ann = Phoenix.View.render(ChatUp.Api.MessageView, "message.json", %{
       message: message
     })
 
