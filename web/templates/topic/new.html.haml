@@ -1,0 +1,19 @@
+= form_for @changeset, topic_path(@conn, :create), fn f ->
+
+  = if @changeset.action do
+    .alert.alert-danger
+      %b Oops!
+      Something went wrong! Please check the errors below.
+  - end
+
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title New Topic
+
+    .panel-body
+      = render "_form.html", f: f
+
+    .panel-footer
+      = submit "Create Topic", class: "btn btn-primary pull-right"
+      .clearfix
+- end

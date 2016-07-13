@@ -48,8 +48,8 @@ config :logger, level: :info
 # If you are doing OTP releases, you need to instruct Phoenix
 # to start the server for all endpoints:
 #
-#     config :phoenix, :serve_endpoints, true
-#
+config :phoenix, :serve_endpoints, true
+
 # Alternatively, you can configure exactly which server to
 # start per endpoint:
 #
@@ -58,7 +58,7 @@ config :logger, level: :info
 # You will also need to set the application root to `.` in order
 # for the new static assets to be served after a hot upgrade:
 #
-#     config :chat_up, ChatUp.Endpoint, root: "."
+config :chat_up, ChatUp.Endpoint, root: "."
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.

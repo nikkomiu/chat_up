@@ -1,0 +1,20 @@
+= form_for @changeset, room_path(@conn, :create), fn f ->
+
+  = if @changeset.action do
+    .alert.alert-danger
+      %b Oops!
+      Something went wrong! Please check the errors below.
+  - end
+
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title New Room
+
+    .panel-body
+      = render "_form.html", f: f
+
+    .panel-footer
+      = submit "Create Room", class: "btn btn-primary pull-right"
+      .clearfix
+
+- end

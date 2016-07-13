@@ -3,6 +3,6 @@ defmodule ChatUp.PageController do
 
   def index(conn, _params) do
     conn
-    |> render :index
+    |> render(:index)
   end
 end

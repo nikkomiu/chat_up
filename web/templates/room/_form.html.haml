@@ -1,0 +1,7 @@
+.form-group
+  = text_input @f, :name, placeholder: "name", class: "form-control"
+  = error_tag @f, :name
+
+.form-group
+  = textarea @f, :description, placeholder: "description", rows: 3, class: "form-control"
+  = error_tag @f, :description
