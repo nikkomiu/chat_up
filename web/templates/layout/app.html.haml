@@ -14,7 +14,7 @@
     = render ChatUp.SharedView, "_navigation.html", conn: @conn
     = render ChatUp.SharedView, "_flash.html", conn: @conn
 
-    %main.container{role: "main"}
+    %main.container
       = render @view_module, @view_template, assigns
 
     %script{src: "#{static_path(@conn, "/js/app.js")}"}

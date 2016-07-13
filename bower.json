@@ -1,0 +1,21 @@
+{
+  "name": "chat_up",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Nikko Miu <nikko.miu@nikkomiu.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/nikkomiu/chat_up",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#^0.97.6"
+  }
+}

@@ -4,11 +4,9 @@ exports.config = {
     javascripts: {
       joinTo: "js/app.js"
 
-      // To use a separate vendor.js bundle, specify two files path
-      // http://brunch.io/docs/config#-files-
       // joinTo: {
       //   "js/app.js": /^(web\/static\/js|node_modules\/phoenix.*)/,
-      //   "js/vendor.js": /^(web\/static\/vendor)|(deps)|(node_modules\/jquery)/
+      //   "js/vendor.js": /^bower_components/
       // }
 
       // To change the order of concatenation of files, explicitly mention here
@@ -34,7 +32,10 @@ exports.config = {
     // This option sets where we should place non-css and non-js assets in.
     // By default, we set this to "/web/static/assets". Files in this directory
     // will be copied to `paths.public`, which is "priv/static" by default.
-    assets: /^(web\/static\/assets)/
+    assets: /^(web\/static\/assets)/,
+    ignored: [
+      /bower_components\/Materialize/
+    ]
   },
 
   // Phoenix paths configuration
@@ -53,12 +54,15 @@ exports.config = {
   plugins: {
     babel: {
       // Do not use ES6 compiler in vendor code
-      ignore: [/web\/static\/vendor/]
+      ignore: [
+        /web\/static\/vendor/,
+        /bower_components/
+      ]
     },
     sass: {
       mode: 'native',
       options: {
-        includePaths: ["node_modules/bootstrap-sass/assets/stylesheets"]
+        includePaths: ["bower_components/Materialize/sass"]
       }
     }
   },
