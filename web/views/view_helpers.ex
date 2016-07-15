@@ -12,10 +12,10 @@ defmodule ChatUp.ViewHelpers do
     end
   end
 
-  def svg_icon(name) do
-    "material/#{name}.svg"
+  def svg_icon(name, collection \\ "material") do
+    "#{collection}/#{name}.svg"
     |> read_svg_file()
-    |> wrap_svg("material")
+    |> wrap_svg(collection)
     |> safety_string()
   end
 
@@ -38,7 +38,7 @@ defmodule ChatUp.ViewHelpers do
       {:ok, result} ->
         result
       {:error, _} ->
-        "could not read file"
+        "<svg viewbox='0 0 60 60'><text x='0' y='40' font-size='30' font-weight='bold' font-family='monospace'>Err</text></svg>"
     end
   end
 end
