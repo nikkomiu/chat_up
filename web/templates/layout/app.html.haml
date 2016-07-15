@@ -13,9 +13,10 @@
   %body
     = render ChatUp.SharedView, "_header.html", conn: @conn
 
-    %main
+    %main.page-content
       = render @view_module, @view_template, assigns
 
-    = render ChatUp.SharedView, "_footer.html"
+    %footer.page-footer
+      = render ChatUp.SharedView, "_footer.html"
 
     %script{src: "#{static_path(@conn, "/js/app.js")}"}

@@ -1,18 +1,19 @@
-%h4 Rooms
+.pad-sides
+  %h4 Rooms
 
-.fixed-action-btn
-  = link to: room_path(@conn, :new), class: "btn-floating btn-large red hoverable" do
-    %i.large.material-icons add
-  - end
-
-.row
-  = for room <- @rooms do
-    = link to: room_path(@conn, :show, room.id) do
-      .col.s6
-        .card-panel.grey-text.text-darken-2.hoverable
-          %h5= room.name
-          = if (room.description != "") do
-            %p.truncate= room.description
-          - end
+  .fixed-action-btn
+    = link to: room_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red hoverable" do
+      %i.large.material-icons= svg_icon "add"
     - end
-  - end
+
+  .row
+    = for room <- @rooms do
+      = link to: room_path(@conn, :show, room.id) do
+        .col.s12.m6.l4
+          .card-panel.grey-text.text-darken-2.hoverable
+            %h5.card-title= room.name
+            = if (room.description != "") do
+              %p.card-description.truncate= room.description
+            - end
+      - end
+    - end

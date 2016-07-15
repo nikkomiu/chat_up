@@ -15,5 +15,6 @@ import Topic from "./topic"
 Topic.init(socket, document.getElementById("chat-panel"))
 
 $(function(){
+  console.log('yay!')
   $('.button-collapse').sideNav();
 });

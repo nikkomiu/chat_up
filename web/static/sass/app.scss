@@ -10,6 +10,8 @@ $navbar-height: 48px;
 $navbar-height-mobile: 40px;
 $navbar-brand-font-size: 1.4rem;
 
+$sidenav-item-height: 42px;
+
 @import "materialize";
 
 @import "_sticky_footer";
@@ -26,6 +28,21 @@ h1, h2, h3, h4, h5, h6 {
   small {
     @extend .grey-text;
   }
+}
+
+.card-title {
+  margin: 0;
+}
+
+.card-description {
+  margin-bottom: 0;
+}
+
+.side-nav li.sidebar-header {
+  padding-left: 20px;
+  padding-right: 20px;
+
+  color: #777;
 }
 
 .pad-sides {

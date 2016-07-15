@@ -1,5 +1,7 @@
 defmodule ChatUp.ViewHelpers do
 
+  require Logger
+
   def mtl_label(form, field) do
     Phoenix.HTML.Form.label(form, field, class: is_active(form, field))
   end
@@ -26,7 +28,11 @@ defmodule ChatUp.ViewHelpers do
   end
 
   defp read_svg_file(icon_path) do
-    file_path = Path.join("priv/static/svg/", icon_path)
+    file_path = Path.join([
+      Application.app_dir(:chat_up),
+      "priv/static/svg/",
+      icon_path
+    ])
 
     case File.read(file_path) do
       {:ok, result} ->

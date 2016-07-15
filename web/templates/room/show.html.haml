@@ -1,24 +1,21 @@
 %nav.grey.darken-1
-  .nav-wrapper.pad-sides.z-depth-1
+  .nav-wrapper.pad-sides.z-depth-1.grey.darken-1
     .col.s12
       = link to: room_path(@conn, :index), class: "breadcrumb" do
         = svg_icon "home"
       - end
       %span.breadcrumb= @room.name
 
-.container
-  %h4
-    = @room.name
-    %small= @room.description
-
-  .collection.with-header.z-depth-1
-    .collection-header
-      %h5 Topics
-    = for topic <- @room.topics do
+%ul.right.side-nav.fixed#slide-out
+  %li.sidebar-header Topics
+  = for topic <- @room.topics do
+    %li
       = link to: topic_path(@conn, :show, topic), class: "collection-item" do
         = topic.name
       - end
-    - end
+  - end
+
+%a.button-collapse{href: "#", data-activates="slide-out"} Sidebar
 
 .fixed-action-btn
   %a.btn-floating.btn-large.blue= svg_icon "menu"
