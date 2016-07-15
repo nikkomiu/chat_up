@@ -4,7 +4,7 @@ defmodule ChatUp.Repo.Migrations.CreateTopic do
   def change do
     create table(:topics) do
       add :name, :string, null: false
-      add :audience, :integer
+      add :audience, :integer, default: 0
       add :room_id, references(:topics, on_delete: :delete_all)
 
       timestamps()

@@ -52,6 +52,8 @@ defmodule ChatUp.Web do
       import ChatUp.Router.Helpers
       import ChatUp.ErrorHelpers
       import ChatUp.Gettext
+
+      import ChatUp.ViewHelpers
     end
   end
 

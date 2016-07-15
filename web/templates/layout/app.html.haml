@@ -11,10 +11,11 @@
     %title Hello ChatUp!
     %link{href: "#{static_path(@conn, "/css/app.css")}", rel: "stylesheet"}
   %body
-    = render ChatUp.SharedView, "_navigation.html", conn: @conn
-    = render ChatUp.SharedView, "_flash.html", conn: @conn
+    = render ChatUp.SharedView, "_header.html", conn: @conn
 
-    %main.container
+    %main
       = render @view_module, @view_template, assigns
+
+    = render ChatUp.SharedView, "_footer.html"
 
     %script{src: "#{static_path(@conn, "/js/app.js")}"}

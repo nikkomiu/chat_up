@@ -1,24 +1,13 @@
+%h3 Edit Room
+
 = form_for @changeset, room_path(@conn, :update, @room), fn f ->
 
-  = if @changeset.action do
-    .alert.alert-danger
-      %b Oops!
-      Something went wrong! Please check the errors below.
-  - end
+  = render ChatUp.SharedView, "_form_error.html", changeset: @changeset
 
-  .panel.panel-default
-    .panel-heading
-      %h3.panel-title Edit Room
+  = render "_form.html", f: f
 
-    .panel-body
-      = render "_form.html", f: f
-
-    .panel-footer
-      .pull-left
-        = link "Back", to: room_path(@conn, :show, @room), class: "btn btn-link"
-      .pull-right
-        = submit "Update Room", class: "btn btn-primary"
-      .clearfix
+  = link "Back", to: room_path(@conn, :show, @room), class: "btn btn-link"
+  = submit "Update Room", class: "btn btn-primary"
 
 - end
 

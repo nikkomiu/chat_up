@@ -13,3 +13,7 @@ import socket from "./socket"
 import Topic from "./topic"
 
 Topic.init(socket, document.getElementById("chat-panel"))
+
+$(function(){
+  $('.button-collapse').sideNav();
+});

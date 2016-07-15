@@ -1,0 +1,38 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+$primary-color: #51445F;
+$primary-color-light: lighten($primary-color, 16%);
+
+$secondary-color: #64b5f6;
+
+$navbar-height: 48px;
+$navbar-height-mobile: 40px;
+$navbar-brand-font-size: 1.4rem;
+
+@import "materialize";
+
+@import "_sticky_footer";
+@import "_svg_icons";
+@import "_form";
+@import "_btn";
+@import "_nav";
+
+html {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  small {
+    @extend .grey-text;
+  }
+}
+
+.pad-sides {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+footer.page-footer {
+  padding-top: 0;
+}

@@ -20,7 +20,7 @@ exports.config = {
     stylesheets: {
       joinTo: "css/app.css",
       order: {
-        after: ["web/static/scss/app.scss"] // concat app.css last
+        after: ["web/static/sass/app.scss"] // concat app.css last
       }
     },
     templates: {
@@ -34,7 +34,8 @@ exports.config = {
     // will be copied to `paths.public`, which is "priv/static" by default.
     assets: /^(web\/static\/assets)/,
     ignored: [
-      /bower_components\/Materialize/
+      "bower_components/Materialize/bin/materialize.css",
+      /web\/static\/sass\/_.*\.(scss|sass)/
     ]
   },
 
@@ -60,7 +61,7 @@ exports.config = {
       ]
     },
     sass: {
-      mode: 'native',
+      mode: 'ruby', // ruby or native
       options: {
         includePaths: ["bower_components/Materialize/sass"]
       }

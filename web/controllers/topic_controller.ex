@@ -3,8 +3,12 @@ defmodule ChatUp.TopicController do
 
   alias ChatUp.Topic
 
-  def new(conn, _params) do
-    changeset = Topic.changeset(%Topic{})
+  def new(conn, %{"room_id" => room_id}) do
+    room = Repo.get!(ChatUp.Room, room_id)
+    changeset =
+      room
+      |> build_assoc(:topics)
+      |> Topic.changeset()
 
     render(conn, :new, changeset: changeset)
   end
@@ -16,7 +20,11 @@ defmodule ChatUp.TopicController do
   end
 
   def create(conn, %{"topic" => topic_params}) do
-    changeset = Topic.changeset(%Topic{}, topic_params)
+    room = Repo.get!(ChatUp.Room, topic_params["room_id"])
+    changeset =
+      room
+      |> build_assoc(:topics)
+      |> Topic.changeset(topic_params)
 
     case Repo.insert(changeset) do
       {:ok, topic} ->

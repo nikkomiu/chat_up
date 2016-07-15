@@ -1,21 +1,35 @@
-%h3.page-header
-  .pull-left
+%nav.grey.darken-1
+  .nav-wrapper.pad-sides.z-depth-1
+    .col.s12
+      = link to: room_path(@conn, :index), class: "breadcrumb" do
+        = svg_icon "home"
+      - end
+      %span.breadcrumb= @room.name
+
+.container
+  %h4
     = @room.name
     %small= @room.description
-  .pull-right
-    = link "Edit", to: room_path(@conn, :edit, @room), class: "btn btn-primary btn-xs"
-  .clearfix
 
-.panel.panel-default
-  .panel-heading
-    %h3.panel-title.pull-left
-      = @room.name
-      Topics
-    = link "New", to: topic_path(@conn, :new), class: "btn btn-primary btn-xs pull-right"
-    .clearfix
-  .list-group
+  .collection.with-header.z-depth-1
+    .collection-header
+      %h5 Topics
     = for topic <- @room.topics do
-      = link to: topic_path(@conn, :show, topic), class: "list-group-item" do
+      = link to: topic_path(@conn, :show, topic), class: "collection-item" do
         = topic.name
       - end
     - end
+
+.fixed-action-btn
+  %a.btn-floating.btn-large.blue= svg_icon "menu"
+  %ul
+    %li
+      %a.btn-floating.red.waves-effect.tooltipped{data-position: "left", data-delay: "50", data-tooltip: "Delete Room"}= svg_icon "delete"
+    %li
+      = link to: room_path(@conn, :edit, @room), class: "btn-floating orange waves-effect tooltipped", "data-position": "left", "data-delay": "50", "data-tooltip": "Edit Room" do
+        = svg_icon "mode_edit"
+      - end
+    %li
+      = link to: topic_path(@conn, :new, room_id: @room.id), class: "btn-floating green waves-effect tooltipped", "data-position": "left", "data-delay": "50", "data-tooltip": "New Topic" do
+        = svg_icon "add"
+      - end

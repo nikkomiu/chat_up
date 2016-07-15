@@ -1,7 +1,10 @@
-.form-group
-  = text_input @f, :name, placeholder: "marketing-team", class: "form-control"
+.input-field
+  = mtl_label @f, :name
+  = text_input @f, :name
   = error_tag @f, :name
 
-.form-group
-  = text_input @f, :audience, placeholder: "audience", class: "form-control"
-  = error_tag @f, :audience
+.input-field
+  = mtl_label @f, :audience
+  = text_input @f, :audience
+
+= hidden_input @f, :room_id
