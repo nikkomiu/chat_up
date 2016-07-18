@@ -12,6 +12,8 @@ config :chat_up,
 config :phoenix, :template_engines,
   haml: PhoenixHaml.Engine
 
+config :phoenix_inline_svg, default_collection: "material"
+
 # Configures the endpoint
 config :chat_up, ChatUp.Endpoint,
   url: [host: "localhost"],

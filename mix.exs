@@ -19,7 +19,7 @@ defmodule ChatUp.Mixfile do
   def application do
     [mod: {ChatUp, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger,
-                    :gettext, :phoenix_ecto, :postgrex, :phoenix_haml]]
+                    :gettext, :phoenix_ecto, :postgrex, :phoenix_haml, :phoenix_inline_svg]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,7 +39,8 @@ defmodule ChatUp.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:phoenix_haml, "~> 0.2.1"},
-     {:exrm, "~> 1.0"}]
+     {:exrm, "~> 1.0"},
+     {:phoenix_inline_svg, "~> 0.1"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

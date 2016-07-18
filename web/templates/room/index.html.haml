@@ -3,7 +3,7 @@
 
   .fixed-action-btn
     = link to: room_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red hoverable" do
-      %i.large.material-icons= svg_icon "add"
+      %i.large.material-icons= svg_image(@conn, "add")
     - end
 
   .row

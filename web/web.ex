@@ -53,6 +53,8 @@ defmodule ChatUp.Web do
       import ChatUp.ErrorHelpers
       import ChatUp.Gettext
 
+      import PhoenixInlineSvg.Helpers
+
       import ChatUp.ViewHelpers
     end
   end

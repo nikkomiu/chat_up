@@ -30,6 +30,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+#sidenav-overlay {
+  z-index: 998;
+}
+
 .card-title {
   margin: 0;
 }
@@ -43,6 +47,9 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 20px;
 
   color: #777;
+
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .pad-sides {
