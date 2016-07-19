@@ -1,11 +1,12 @@
-%h3 New Room
+.container
+  %h3 New Room
 
-= form_for @changeset, room_path(@conn, :create), fn f ->
+  = form_for @changeset, room_path(@conn, :create), fn f ->
 
-  = render ChatUp.SharedView, "_form_error.html", changeset: @changeset
+    = render ChatUp.SharedView, "_form_error.html", changeset: @changeset
 
-  = render "_form.html", f: f
+    = render "_form.html", f: f
 
-  = submit "Create Room", class: "btn btn-primary pull-right"
+    = submit "Create Room", class: "btn btn-primary pull-right"
 
-- end
+  - end

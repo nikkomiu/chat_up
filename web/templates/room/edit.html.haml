@@ -1,14 +1,13 @@
-%h3 Edit Room
+.container
+  %h3 Edit Room
 
-= form_for @changeset, room_path(@conn, :update, @room), fn f ->
+  = form_for @changeset, room_path(@conn, :update, @room), fn f ->
+    = render ChatUp.SharedView, "_form_error.html", changeset: @changeset
 
-  = render ChatUp.SharedView, "_form_error.html", changeset: @changeset
+    = render "_form.html", f: f
 
-  = render "_form.html", f: f
+    = link "Back", to: room_path(@conn, :show, @room), class: "btn btn-link"
+    = submit "Update Room", class: "btn btn-primary right"
+  - end
 
-  = link "Back", to: room_path(@conn, :show, @room), class: "btn btn-link"
-  = submit "Update Room", class: "btn btn-primary"
-
-- end
-
-= button "Delete Room", to: room_path(@conn, :delete, @room), method: :delete, data: [confirm: "Are you sure you want to delete this room?"], class: "btn btn-danger"
+  = link "Delete Room", to: room_path(@conn, :delete, @room), method: :delete, data: [confirm: "Are you sure you want to delete this room?"], class: "btn red"

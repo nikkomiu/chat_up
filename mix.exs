@@ -40,7 +40,7 @@ defmodule ChatUp.Mixfile do
      {:cowboy, "~> 1.0"},
      {:phoenix_haml, "~> 0.2.1"},
      {:exrm, "~> 1.0"},
-     {:phoenix_inline_svg, "~> 0.1"}]
+     {:phoenix_inline_svg, "~> 0.2"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
