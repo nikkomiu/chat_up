@@ -5,7 +5,7 @@ config :chat_up, ChatUp.Endpoint,
   url: [host: "chatup.nikkomiu.com", port: 80],
   cache_static_manifest: "priv/static/manifest.json"
 
-# Do not print debug messages in production
+# Logging
 config :logger, level: :info
 
 # Releases
