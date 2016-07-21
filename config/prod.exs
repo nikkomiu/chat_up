@@ -1,7 +1,7 @@
 use Mix.Config
 
 config :chat_up, ChatUp.Endpoint,
-  http: [host: "localhost", port: 8080],
+  http: [port: 8080],
   url: [host: "chatup.nikkomiu.com", port: 80],
   cache_static_manifest: "priv/static/manifest.json"
 
