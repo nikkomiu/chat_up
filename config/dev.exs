@@ -4,8 +4,7 @@ use Mix.Config
 # debugging and code reloading.
 #
 # The watchers configuration can be used to run external
-# watchers to your application. For example, we use it
-# with brunch.io to recompile .js and .css sources.
+# watchers to your application.
 config :chat_up, ChatUp.Endpoint,
   http: [port: 4000],
   debug_errors: true,
@@ -13,7 +12,6 @@ config :chat_up, ChatUp.Endpoint,
   check_origin: false,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../", __DIR__)]]
-
 
 # Watch static and templates for browser reloading.
 config :chat_up, ChatUp.Endpoint,
@@ -29,8 +27,7 @@ config :chat_up, ChatUp.Endpoint,
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 
-# Set a higher stacktrace during development. Avoid configuring such
-# in production as building large stacktraces may be expensive.
+# Set a higher stacktrace during development.
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
